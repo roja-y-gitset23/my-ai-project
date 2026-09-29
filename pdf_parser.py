@@ -2,12 +2,13 @@ def parse_pdf_pages(pages):
     result = []
 
     for page in pages:
-        if page == "":
-            result.append("\n--- PAGE BREAK ---\n")
-        else:
-            result.append(page)
+        if not page.strip():
+            continue
 
-    return "" .join(result)
+        result.append(page.strip())
+
+    return "\n--- PAGE BREAK ---\n".join(result)
+
 
 pages = [
     "Page 1 content",
